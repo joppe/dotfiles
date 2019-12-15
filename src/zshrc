@@ -123,28 +123,11 @@ alias l="ls -Alh"
 
 alias display-layout-solo="~/.screenlayout/solo.sh && after-display-layout-change"
 alias dl-solo="display-layout-solo"
-alias display-layout-upfront="~/.screenlayout/solo.sh && after-display-layout-change"
-alias dl-upfront="display-layout-upfront"
 alias display-layout-home="~/.screenlayout/home.sh && after-display-layout-change"
 alias dl-home="display-layout-home"
-alias display-layout-klm="~/.screenlayout/klm.sh && after-display-layout-change"
-alias dl-klm="display-layout-klm"
 alias after-display-layout-change="xfce4-panel -r"
 
 alias dev="cd ~/projects"
-alias dev-klm="dev && cd ./work/aviato-workspace/aviato"
-alias dev-klm-search="dev-klm && cd ./packages/ubc-search"
-alias dev-klm-e2e="dev-klm && cd ./tests/smoke/ubc/search"
-alias dev-klm-gql="dev && cd ./work/aviato-workspace/aviato-gql"
-
-alias klm-fe="dev-klm && ENVIRONMENT=ute3 yarn dev"
-alias klm-fe-mitm="dev-klm && ENVIRONMENT=ute3 AVIATO_HOST=KL HTTPS_PROXY=http://localhost:8080 NODE_TLS_REJECT_UNAUTHORIZED=0 yarn dev"
-alias klm-be="dev-klm-gql && ENVIRONMENT=ute3 yarn dev"
-alias klm-be-mitm="dev-klm-gql && dev-klm-gql && env ENVIRONMENT=ute3 HTTPS_PROXY=http://localhost:8080 NODE_TLS_REJECT_UNAUTHORIZED=0 PORT=9000 npm run dev"
-alias start-klm="~/Dropbox/work/klm/start-klm.sh"
-alias start-klm-mitm="~/Dropbox/work/klm/start-klm-mitm.sh"
-alias stop-klm="tmux kill-session -t KLM"
-alias test-klm="dev-klm && ng run ubc-search:test --watch=false --source-map=false"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
