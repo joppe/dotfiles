@@ -118,16 +118,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias src="source ~/.zshrc"
-alias src-edit="vim ~/.zshrc"
+alias src-edit="nvim ~/.zshrc"
 alias l="ls -Alh"
-
-alias display-layout-solo="~/.screenlayout/solo.sh && after-display-layout-change"
-alias dl-solo="display-layout-solo"
-alias display-layout-home="~/.screenlayout/home.sh && after-display-layout-change"
-alias dl-home="display-layout-home"
-alias after-display-layout-change="xfce4-panel -r"
-
-alias dev="cd ~/projects"
+alias dev="cd ~/work"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
