@@ -15,6 +15,10 @@
 (require 'use-package)
 (setq use-package-always-ensure 't)
 
+;; this package loads the environment variables from ~/.zshrc
+(use-package exec-path-from-shell
+  :config (exec-path-from-shell-initialize))
+
 ;; hide the menu bar
 (menu-bar-mode -1)
 
@@ -41,11 +45,24 @@
 (global-display-line-numbers-mode 1)
 (global-visual-line-mode t)
 
+;; inline images
+(defun my/fix-inline-images ()
+  (when org-inline-image-overlays
+    (org-redisplay-inline-images)))
+
+(add-hook 'org-babel-after-execute-hook 'my/fix-inline-images)
+
 ;; active Babel languages
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((js . t))
+ '(
+   (js . t)
+   (dot . t)
+   (plantuml . t)
+   (shell . t)
+  )
 )
+
 
 ;; Open dired in same buffer
 (put 'dired-find-alternate-file 'disabled nil)
