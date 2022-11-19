@@ -1,5 +1,27 @@
-set vpn_dir $HOME/.config/openconnect
+#+title: fish functions vpn
+#+property: header-args :tangle vpn.fish
 
+* Table of contents :toc:
+- [[#fish-vpn-function][Fish vpn function]]
+  - [[#config][Config]]
+  - [[#vpn-function][vpn function]]
+  - [[#vpn-status-function][vpn-status function]]
+  - [[#vpn-start-function][vpn-start function]]
+  - [[#vpn-stop-function][vpn-stop function]]
+
+* Fish vpn function
+
+** Config
+#+begin_src sh
+set vpn_dir $HOME/.config/openconnect
+#+end_src
+
+** vpn function
+The main function =vpn= accepts two arguments:
+1. the command, it can be on of 'start', 'stop' or 'status'
+2. the vpn config
+
+#+begin_src sh
 function vpn
     set -l cmd $argv[1]
     set -l ctx $argv[2]
@@ -26,17 +48,28 @@ function vpn
             return 1
     end
 end
+#+end_src
 
+** vpn-status function
+Show if there is a vpn connection active.
+
+#+begin_src sh
 function vpn-status
     set -l vpn_status (ip tuntap show)
 
     if string match -q "tun0: tun*" $vpn_status
-        echo "⬆️  VPN is active"
+        echo "⬆️VPN is active"
     else
-        echo "⬇️  VPN is off"
+        echo "⬇️VPN is off"
+        sudo rm $vpn_dir/*.lock
     end
 end
+#+end_src
 
+** vpn-start function
+Start a vpn connection.
+
+#+begin_src sh
 function vpn-start
     set -l connection $argv[1]
     set -l url ""
@@ -54,7 +87,12 @@ function vpn-start
 
     return 0
 end
+#+end_src
 
+** vpn-stop function
+Stop a vpn function.
+
+#+begin_src sh
 function vpn-stop
     set -l connection $argv[1]
     set -l lockfile "$vpn_dir/$connection.lock"
@@ -69,3 +107,4 @@ function vpn-stop
         return 1
     end
 end
+#+end_src

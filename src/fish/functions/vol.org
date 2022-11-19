@@ -1,3 +1,17 @@
+#+title: fish functions vol
+#+property: header-args :tangle vol.fish
+
+* Table of contents :toc:
+- [[#fish-vol-function][Fish vol function]]
+  - [[#vol][Vol]]
+
+* Fish vol function
+Function to adjust the volume using =amixer=.
+
+** Vol
+The function =vol= accepts one argument, that can be 'up', 'down' or 'toggle'. With =toggle= the volume can be =muted= or =unmuted=
+
+#+begin_src sh
 function vol
     set -l cmd $argv[1]
 
@@ -18,3 +32,4 @@ function vol
             return 1
     end
 end
+#+end_src

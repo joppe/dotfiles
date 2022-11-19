@@ -1,0 +1,39 @@
+#+title: fish functions screen
+#+property: header-args :tangle screen.fish
+
+* Table of contents :toc:
+- [[#fish-screen-function][Fish screen function]]
+  - [[#configuration][Configuration]]
+  - [[#screen][Screen]]
+
+* Fish screen function
+With the =screen= function the screen layout can be set, it uses the =arandr= application.
+
+** Configuration
+Set the directory where the =arandr= scripts are stored.
+
+#+begin_src sh
+set layout_dir $HOME/.screenlayout
+#+end_src
+
+** Screen
+The main function. It accepts one argument, the name of the configuration that needs to be loaded.
+
+#+begin_src sh
+function screen
+    set -l layout $argv[1]
+
+    if test -z $layout
+        echo "No layout specified." "Please enter a display layout"
+        return 1
+    end
+
+    if test -e "$layout_dir/$layout.sh"
+        $layout_dir/$layout.sh
+        echo "🖥️  screen layout $layout set"
+    else
+        echo "Screen layout $layout not found"
+        return 1
+    end
+end
+#+end_src
