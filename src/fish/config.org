@@ -1,3 +1,6 @@
+#+title: Fish configuration
+#+property: header-args :tangle config.fish
+
 * Table of contents :toc:
 - [[#fish-configuration][Fish configuration]]
   - [[#script-to-execute-when-ready][Script to execute when ready]]
