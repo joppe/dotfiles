@@ -1,0 +1,27 @@
+[user]
+	name = joppe
+	email = joppe@apestaartje.info
+
+[init]
+	defaultBranch = main
+
+[alias]
+	st = status -s -b
+	b = checkout -b
+	p = push -u
+	pf = push -u --force-with-lease
+
+[push]
+	default = current
+
+[pull]
+	rebase = true
+
+[fetch]
+	prune = true
+
+[rebase]
+	autostash = true
+
+[rerere]
+	enabled = true
