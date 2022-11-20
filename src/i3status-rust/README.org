@@ -12,6 +12,9 @@
   - [[#time][Time]]
 
 * i3status_rust config
+This is my configuration for =i3status-rust=. It is a replacement for =i3status= and is status bar for the =i3= window manager.
+=i3status_rust= website https://github.com/greshake/i3status-rust.
+
 ** Theme and icons
 #+begin_src conf
 theme = "solarized-dark"

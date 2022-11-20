@@ -1,10 +1,39 @@
+* Table of contents :toc:
+- [[#fish-configuration][Fish configuration]]
+  - [[#script-to-execute-when-ready][Script to execute when ready]]
+  - [[#nodenv-support][nodenv support]]
+  - [[#starship-support][starship support]]
+
+* Fish configuration
+This is my fish configuration.
+For the functions I chose to create an org file per function file instead of one big file that could generate them all.
+
+Fish website https://fishshell.com/docs/2.4/index.html.
+
+** Script to execute when ready
+#+begin_src sh
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
+#+end_src
 
+** nodenv support
+=nodenv= is version installer/manager for =nodejs= https://github.com/nodenv/nodenv
+
+#+begin_src sh
 status --is-interactive; and source (nodenv init -|psub)
+#+end_src
 
+** starship support
+=starship= is a customizable prompt for any shell https://starship.rs/.
+
+Add alias for:
+- to create a nice directory overview.
+- to use the "old" =ls= command
+
+#+begin_src sh
 starship init fish | source
 
 alias l="exa --group-directories-first --icons -F -T -L=1"
 alias ll="ls -la"
+#+end_src

@@ -13,6 +13,9 @@
   - [[#bar][Bar]]
 
 * i3 configuration
+This is my configuration for the =i3= window manager.
+=i3= website https://i3wm.org/docs/userguide.html
+
 ** Variables
 Assign keyboard keys and gap sizes to variables. I've modified the keys for movement, I want them to be aligned with emacs.
 
