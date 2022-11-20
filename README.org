@@ -1,0 +1,13 @@
+#+title: Readme
+
+* Table of contents :toc:
+- [[#dotfiles][Dotfiles]]
+  - [[#improvements-03][improvements]]
+
+* Dotfiles
+These are my configuration files for applications I use.
+
+** TODO improvements [0/3]
+- [ ] Add autocomplete to =fish= commands
+- [ ] Add doom emacs configuration
+- [ ] Change =nvim= config to org-mode
