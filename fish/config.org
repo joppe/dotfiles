@@ -5,7 +5,9 @@
 - [[#fish-configuration][Fish configuration]]
   - [[#script-to-execute-when-ready][Script to execute when ready]]
   - [[#nodenv-support][nodenv support]]
+  - [[#set-editor-environment-variable][set =EDITOR= environment variable]]
   - [[#starship-support][starship support]]
+  - [[#zoxide-support][zoxide support]]
 
 * Fish configuration
 This is my fish configuration.
@@ -14,7 +16,7 @@ For the functions I chose to create an org file per function file instead of one
 Fish website https://fishshell.com/docs/2.4/index.html.
 
 ** Script to execute when ready
-#+begin_src sh
+#+begin_src conf
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
@@ -23,8 +25,13 @@ end
 ** nodenv support
 =nodenv= is version installer/manager for =nodejs= https://github.com/nodenv/nodenv
 
-#+begin_src sh
+#+begin_src conf
 status --is-interactive; and source (nodenv init -|psub)
+#+end_src
+
+** set =EDITOR= environment variable
+#+begin_src conf
+set -gx EDITOR nvim
 #+end_src
 
 ** starship support
@@ -34,9 +41,16 @@ Add alias for:
 - to create a nice directory overview.
 - to use the "old" =ls= command
 
-#+begin_src sh
+#+begin_src conf
 starship init fish | source
 
 alias l="exa --group-directories-first --icons -F -T -L=1"
 alias ll="ls -la"
+#+end_src
+
+** zoxide support
+zoxide is a smarter cd command https://github.com/ajeetdsouza/zoxide
+
+#+begin_src conf
+zoxide init fish | source
 #+end_src
