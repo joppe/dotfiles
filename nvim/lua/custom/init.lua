@@ -10,3 +10,6 @@
 vim.opt.relativenumber = true
 
 vim.g.dap_virtual_text = true
+
+-- Exit from insert mode by Esc in Terminal
+vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])

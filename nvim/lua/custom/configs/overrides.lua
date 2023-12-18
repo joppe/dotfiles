@@ -14,12 +14,23 @@ M.treesitter = {
     "markdown_inline",
     "rust",
     "svelte",
+    "python",
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<C-space>",
+      node_incremental = "<C-space>",
+      scope_incremental = false,
+      node_decremental = "<bs>",
+    },
+  },
+  highlight = {
+    enable = true,
+    disable = {},
   },
   indent = {
     enable = true,
-    -- disable = {
-    --   "python"
-    -- },
   },
 }
 
@@ -36,7 +47,15 @@ M.mason = {
     "deno",
     "prettier",
 
+    "emmet-language-server",
+
     "rust-analyzer",
+
+    "black",
+    "debugpy",
+    "mypy",
+    "ruff",
+    "pyright",
   },
 }
 

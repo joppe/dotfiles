@@ -22,6 +22,26 @@ M.dap = {
   },
 }
 
+M.dap_python = {
+  plugin = true,
+  n = {
+    ["<leader>dpr"] = {
+      function()
+        require("dap-python").test_method()
+      end,
+    },
+  },
+}
+M.telescope = {
+  plugin = true,
+  n = {
+    ["<leader>fs"] = {
+      function()
+        require("telescope").extensions.live_grep_args.live_grep_args()
+      end,
+    },
+  },
+}
 M.crates = {
   plugin = true,
   n = {
