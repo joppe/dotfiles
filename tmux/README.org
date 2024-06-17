@@ -138,6 +138,13 @@ unbind p
 bind p paste-buffer
 #+end_src
 
+*** Status bar
+Set it to the top of the screen
+
+#+begin_src conf
+set-option -g status-position top
+#+end_src
+
 ** Initialize =tpm=
 This must be done at the bottom of the configuration file.
 
