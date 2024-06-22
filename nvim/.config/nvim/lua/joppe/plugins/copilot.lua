@@ -1,8 +1,9 @@
 return {
   "zbirenbaum/copilot.lua",
-  lazy = false,
-  opts = function()
-    local options = {
+  cmd = "Copilot",
+  event = "InsertEnter",
+  config = function()
+    require("copilot").setup({
       panel = {
         enabled = true,
         auto_refresh = false,
@@ -44,11 +45,6 @@ return {
       },
       copilot_node_command = "node", -- Node.js version must be > 16.x
       server_opts_overrides = {},
-    }
-
-    return options
-  end,
-  config = function(_, opts)
-    require("copilot").setup(opts)
+    })
   end,
 }

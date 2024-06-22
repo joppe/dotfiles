@@ -6,6 +6,7 @@ return {
 
     crates.setup(opts)
 
+    -- Setup cmp source for autocomplete
     require("cmp").setup.buffer({
       sources = { { name = "crates" } },
     })
