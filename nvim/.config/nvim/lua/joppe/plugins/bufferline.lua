@@ -8,6 +8,7 @@ return {
     bufferline.setup({
       options = {
         mode = "buffers",
+        diagnostics = "nvim_lsp",
         offsets = {
           {
             filetype = "NvimTree",
@@ -16,6 +17,7 @@ return {
             separator = true,
           },
         },
+        always_show_bufferline = true,
       },
     })
 
