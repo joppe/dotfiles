@@ -15,6 +15,6 @@ return {
 
     vim.keymap.set("n", "<leader>rcu", function()
       require("crates").upgrade_all_crates()
-    end)
+    end, { desc = "Upgrade all crates" })
   end,
 }

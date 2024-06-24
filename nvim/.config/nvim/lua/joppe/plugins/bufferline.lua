@@ -26,10 +26,10 @@ return {
       vim.cmd("bnext")
     end
 
-    vim.keymap.set("n", "<tab>", ":BufferLineCycleNext<CR>", {})
-    vim.keymap.set("n", "<S-tab>", ":BufferLineCyclePrev<CR>", {})
+    vim.keymap.set("n", "<tab>", ":BufferLineCycleNext<CR>", { desc = "Next buffer" })
+    vim.keymap.set("n", "<S-tab>", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
     vim.keymap.set("n", "<leader>x", function()
       close_buffer()
-    end, {})
+    end, { desc = "Close buffer" })
   end,
 }
