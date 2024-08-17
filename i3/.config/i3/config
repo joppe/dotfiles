@@ -30,15 +30,12 @@ exec_always --no-startup-id picom --config $HOME/.config/picom/picom.conf
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# Start the emacs daemon
-exec --no-startup-id /usr/bin/emacs --daemon
-
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
 # For a random wallpaper on each screen
-exec --no-startup-id DISPLAY=:1 feh --bg-fill --randomize ~/stack/images/wallpapers-2/*
+exec --no-startup-id feh --bg-fill --randomize ~/stack/images/wallpapers-2/*
 
 # Set the xrandr configuration
 exec --no-startup-id ~/.screenlayout/home.sh
@@ -53,7 +50,7 @@ exec --no-startup-id /usr/bin/blueman-applet
 exec --no-startup-id /usr/bin/dropbox start -i
 
 # Stack client
-exec --no-startup-id ~/Applications/stack-2.10.1-20220504-x86_64_433cae96d7fed5104724cdddcfc04dce.AppImage
+exec --no-startup-id ~/Applications/stack-v5.3.1-20240731-x86_64.AppImage
 
 # Slack
 exec --no-startup-id /usr/bin/slack
@@ -65,7 +62,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec wezterm
 
 bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 
@@ -168,6 +165,16 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+## ScreenshotS
+bindsym Print exec --no-startup-id maim --format=png "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-all.png"
+bindsym $mod+Print exec --no-startup-id maim --format=png --window $(xdotool getactivewindow) "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-current.png"
+bindsym Shift+Print exec --no-startup-id maim --format=png --select "/home/$USER/Pictures/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-selected.png"
+
+## Screenshots in clipboards
+bindsym Ctrl+Print exec --no-startup-id maim --format=png | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --format=png --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --format=png --select | xclip -selection clipboard -t image/png
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
