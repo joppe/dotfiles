@@ -16,6 +16,11 @@ for_window [class="^.*"] border pixel 2
 gaps inner $inner_gaps
 gaps outer $outer_gaps
 
+# Swap caps and control
+
+#exec_always "setxkbmap -option caps:ctrl_modifier"
+exec_always "setxkbmap -option ctrl:swapcaps"
+
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
