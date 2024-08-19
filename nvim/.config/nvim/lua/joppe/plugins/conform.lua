@@ -6,7 +6,7 @@ return {
     {
       "<leader>fmt",
       function()
-        require("conform").format({ async = true, lsp_format = "fallback" })
+        require("conform").format({ async = true })
       end,
       mode = "",
       desc = "Format buffer",
@@ -17,23 +17,24 @@ return {
 
     conform.setup({
       formatters_by_ft = {
-        javascript = { { "prettierd", "prettier" } },
-        typescript = { { "prettierd", "prettier" } },
-        javascriptreact = { { "prettierd", "prettier" } },
-        typescriptreact = { { "prettierd", "prettier" } },
-        svelte = { { "prettierd", "prettier" } },
-        css = { { "prettierd", "prettier" } },
-        html = { { "prettierd", "prettier" } },
-        json = { { "prettierd", "prettier" } },
-        yaml = { { "prettierd", "prettier" } },
-        markdown = { { "prettierd", "prettier" } },
-        graphql = { { "prettierd", "prettier" } },
+        javascript = { "prettierd", "prettier", stop_after_first = true },
+        typescript = { "prettierd", "prettier", stop_after_first = true },
+        javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+        typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+        svelte = { "prettierd", "prettier", stop_after_first = true },
+        css = { "prettierd", "prettier", stop_after_first = true },
+        html = { "prettierd", "prettier", stop_after_first = true },
+        json = { "prettierd", "prettier", stop_after_first = true },
+        yaml = { "prettierd", "prettier", stop_after_first = true },
+        markdown = { "prettierd", "prettier", stop_after_first = true },
+        graphql = { "prettierd", "prettier", stop_after_first = true },
         lua = { "stylua" },
         python = { "isort", "black" },
       },
-      format_on_save = {
+      default_format_opts = {
         lsp_format = "fallback",
-        async = false,
+      },
+      format_on_save = {
         timeout_ms = 500,
       },
     })
