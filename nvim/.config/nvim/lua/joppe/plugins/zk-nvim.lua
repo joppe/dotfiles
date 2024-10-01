@@ -24,6 +24,5 @@ return {
   end,
   keys = {
     { "<leader>zn", "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", desc = "Zk New" },
-    { "<CR>", "<Cmd>lua vim.lsp.buf.definition()<CR>", desc = "Open linked document" },
   },
 }
