@@ -1,5 +1,7 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/joppe/.zsh/completions:"* ]]; then export FPATH="/home/joppe/.zsh/completions:$FPATH"; fi
 # Set the directory we want to store zinit and plugins
-ZINIT_HOME="${XDG_DATA_HOME:-$HOME}/.local/share}/zinit/zinit.git"
+ZINIT_HOME="${XDG_DATA_HOME:-$HOME}/.local/share/zinit/zinit.git"
 
 # Download Zinit, if it's not there yet
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -11,7 +13,7 @@ fi
 export PATH=$PATH:/usr/local/go/bin:/home/joppe/zk:/home/joppe/nvim-linux64/bin
 
 if [[ ! "$PATH" == */home/joppe/.fzf/bin* ]]; then
-  PATH="${PATH:+${PATH}:}/home/joppe/.fzf/bin"
+  PATH="${PATH}:/home/joppe/.fzf/bin"
 fi
 # fnm
 FNM_PATH="/home/joppe/.local/share/fnm"
@@ -27,9 +29,6 @@ export VISUAL="$EDITOR"
 
 # Source/load zinit
 source "${ZINIT_HOME}/zinit.zsh"
-
-# Add in Powerlevel10k
-zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
@@ -47,11 +46,6 @@ autoload -Uz compinit && compinit
 # fzf-tab needs to be loaded after compinit
 zinit light Aloxaf/fzf-tab
 zinit cdreplay -q
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# eval "$(starship init zsh)"
 
 # Keybindings
 bindkey -e
@@ -84,13 +78,9 @@ alias ls='ls --color'
 alias l="exa --group-directories-first --icons -F -T -L=1"
 alias ll="ls -la"
 alias work="cd /mnt/extra/work"
-alias anwb="cd /mnt/extra/work/anwb"
-alias poncho="cd /mnt/extra/work/anwb/poncho"
-alias monocle="cd /mnt/extra/work/anwb/monocle"
-alias sombrero="cd /mnt/extra/work/anwb/sombrero"
+alias ma="cd /mnt/extra/work/mijnaansluiting"
 alias hobby="cd /mnt/extra/work/joppe"
 alias tmp="cd /home/joppe/tmp"
-alias vpn="sudo openconnect --config=\"$HOME/.config/openconnect/anwb.cfg\" --useragent=\"AnyConnect\" https://start.anwb.nl/aol-ontw"
 alias pn="pnpm"
 alias vim="nvim"
 alias nano="nvim"
@@ -103,5 +93,6 @@ export FNM_COREPACK_ENABLED=true
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fnm env --use-on-cd)"
-#eval "$(fnm completions --shell zsh)"
-
+eval "$(fnm completions --shell zsh)"
+eval "$(starship init zsh)"
+. "/home/joppe/.deno/env"
