@@ -27,3 +27,6 @@ g.mapleader = " "
 -- disable netrw at the very start of your init.lua
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
+
+opt.grepprg = "rg --vimgrep"
+opt.grepformat = "%f:%l:%c:%m"
