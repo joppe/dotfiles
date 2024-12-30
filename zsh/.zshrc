@@ -34,6 +34,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
+zinit light jeffreytse/zsh-vi-mode
 
 # Add in snippets
 zinit snippet OMZP::git
@@ -85,6 +86,10 @@ alias pn="pnpm"
 alias vim="nvim"
 alias nano="nvim"
 alias bat="batcat"
+alias http-server="python3 -m http.server"
+alias volup="sh ~/scripts/volume_up"
+alias voldown="sh ~/scripts/volume_down"
+alias voltoggle="sh ~/scripts/toggle_mute"
 
 # fnm
 export FNM_COREPACK_ENABLED=true
