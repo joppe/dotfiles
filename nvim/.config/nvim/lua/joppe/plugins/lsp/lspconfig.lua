@@ -86,6 +86,19 @@ return {
           capabilities = capabilities,
         })
       end,
+      ["denols"] = function()
+        -- configure deno language server
+        lspconfig["denols"].setup({
+          root_dir = util.root_pattern("deno.json", "deno.jsonc"),
+        })
+      end,
+      ["ts_ls"] = function()
+        -- configure typescript language server
+        lspconfig["ts_ls"].setup({
+          root_dir = util.root_pattern("package.json"),
+          single_file_support = false,
+        })
+      end,
       ["svelte"] = function()
         -- configure svelte server
         lspconfig["svelte"].setup({

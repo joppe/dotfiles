@@ -7,7 +7,7 @@ return {
 
     bufferline.setup({
       options = {
-        mode = "buffers",
+        mode = "tabs",
         diagnostics = "nvim_lsp",
         offsets = {
           {

@@ -1,4 +1,4 @@
-return {
+local config = {
   "zbirenbaum/copilot.lua",
   cmd = "Copilot",
   event = "InsertEnter",
@@ -48,3 +48,5 @@ return {
     })
   end,
 }
+
+return config
