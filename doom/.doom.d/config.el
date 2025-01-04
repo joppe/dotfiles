@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-one)
 ;; (setq doom-theme 'catppuccin)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -46,6 +46,7 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "/mnt/extra/stack/documents/emacs/org/")
 (setq org-roam-directory "/mnt/extra/stack/documents/emacs/roam/")
+(setq org-agenda-files '("/mnt/extra/stack/documents/emacs/org"))
 
 ;; Use relative line numbers
 (setq display-line-numbers-type 'relative)
@@ -91,3 +92,4 @@
 ;; they are implemented.
 (setq catppuccin-flavor 'macchiato)
 (setq doom-theme 'catppuccin)
+
