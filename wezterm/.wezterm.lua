@@ -15,7 +15,7 @@ config.keys = {
 
 config.color_scheme = "catppuccin-mocha"
 
-config.font = wezterm.font("JetBrains Mono")
+config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 11.0
 config.window_background_opacity = 0.9
 config.text_background_opacity = 0.8
