@@ -10,7 +10,7 @@ if [ ! -d "$ZINIT_HOME" ]; then
 fi
 
 # Path
-export PATH=$PATH:/usr/local/go/bin:/home/joppe/zk:/home/joppe/nvim-linux64/bin
+export PATH=$PATH:/usr/local/go/bin:/home/joppe/zk:/home/joppe/nvim-linux64/bin:/home/joppe/.emacs.d/bin/
 
 if [[ ! "$PATH" == */home/joppe/.fzf/bin* ]]; then
   PATH="${PATH}:/home/joppe/.fzf/bin"
