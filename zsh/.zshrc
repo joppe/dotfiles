@@ -26,6 +26,8 @@ fi
 export ZK_NOTEBOOK_DIR=/mnt/extra/stack/notes/
 export EDITOR=nvim
 export VISUAL="$EDITOR"
+# "ma" "prettier" "biome"
+export NVIM_FORMAT="ma"
 
 # Source/load zinit
 source "${ZINIT_HOME}/zinit.zsh"

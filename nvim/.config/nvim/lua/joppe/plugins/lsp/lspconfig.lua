@@ -86,6 +86,10 @@ return {
           capabilities = capabilities,
         })
       end,
+      ["biome"] = function()
+        -- configure biome language server
+        lspconfig["biome"].setup()
+      end,
       ["denols"] = function()
         -- configure deno language server
         lspconfig["denols"].setup({
