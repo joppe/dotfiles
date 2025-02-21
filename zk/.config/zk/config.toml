@@ -52,7 +52,7 @@ filename = "{{format-date now}}"
 # Enable support for #hashtags
 hashtags = true
 # Enable support for :colon:separated:tags:
-colon-tags = true
+# colon-tags = true
 
 
 # EXTERNAL TOOLS
