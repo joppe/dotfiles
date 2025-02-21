@@ -38,6 +38,8 @@ return {
         "emmet_ls",
         "pyright",
         "gopls",
+        "denols",
+        "terraformls",
       },
     })
 
@@ -49,7 +51,8 @@ return {
         "isort", -- python formatter
         "black", -- python formatter
         "pylint",
-        "eslint_d",
+        "eslint-lsp",
+        "tflint",
       },
     })
   end,

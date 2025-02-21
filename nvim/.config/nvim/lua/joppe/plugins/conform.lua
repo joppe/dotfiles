@@ -24,12 +24,13 @@ local config = {
       css = { "prettierd", "prettier", stop_after_first = true },
       html = { "prettierd", "prettier", stop_after_first = true },
       json = { "prettierd", "prettier", stop_after_first = true },
-      yaml = { "prettierd", "prettier", stop_after_first = true },
       markdown = { "prettierd", "prettier", stop_after_first = true },
       graphql = { "prettierd", "prettier", stop_after_first = true },
       lua = { "stylua" },
       python = { "isort", "black" },
       go = { "gofumpt", "goimports-reviser", "golines" },
+      terraform = { "terraform_fmt" },
+      tf = { "terraform_fmt" },
     }
 
     print("Conform mode: " .. format_mode)
@@ -46,6 +47,14 @@ local config = {
       formatters.html = { "biome" }
       formatters.json = { "biome" }
       formatters.graphql = { "biome" }
+    elseif format_mode == "deno" then
+      formatters.javascript = { "deno_fmt" }
+      formatters.typescript = { "deno_fmt" }
+      formatters.javascriptreact = { "deno_fmt" }
+      formatters.typescriptreact = { "deno_fmt" }
+      formatters.css = { "deno_fmt" }
+      formatters.html = { "deno_fmt" }
+      formatters.json = { "deno_fmt" }
     end
 
     conform.setup({

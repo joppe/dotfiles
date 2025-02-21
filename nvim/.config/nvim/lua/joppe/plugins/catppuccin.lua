@@ -1,4 +1,4 @@
-return {
+local config = {
   "catppuccin/nvim",
   name = "catppuccin",
   priority = 1000,
@@ -8,3 +8,5 @@ return {
     vim.cmd.colorscheme("catppuccin")
   end,
 }
+
+return config
