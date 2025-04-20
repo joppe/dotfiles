@@ -23,11 +23,11 @@ if [ -d "$FNM_PATH" ]; then
 fi
 
 # Variables
-export ZK_NOTEBOOK_DIR=/mnt/extra/stack/notes/
+export ZK_NOTEBOOK_DIR=/home/joppe/stack/notes/
 export EDITOR=nvim
 export VISUAL="$EDITOR"
-# "ma" "prettier" "biome"
-export NVIM_FORMAT="ma"
+# "prettier" "biome"
+export NVIM_FORMAT="prettier"
 
 # Source/load zinit
 source "${ZINIT_HOME}/zinit.zsh"
@@ -80,18 +80,15 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls='ls --color'
 alias l="exa --group-directories-first --icons -F -T -L=1"
 alias ll="ls -la"
-alias work="cd /mnt/extra/work"
-alias ma="cd /mnt/extra/work/mijnaansluiting"
-alias hobby="cd /mnt/extra/work/joppe"
+alias work="cd /home/joppe/work"
 alias tmp="cd /home/joppe/tmp"
 alias pn="pnpm"
 alias vim="nvim"
 alias nano="nvim"
-alias bat="batcat"
 alias http-server="python3 -m http.server"
-alias volup="sh ~/scripts/volume_up"
-alias voldown="sh ~/scripts/volume_down"
-alias voltoggle="sh ~/scripts/toggle_mute"
+#alias volup="sh ~/scripts/volume_up"
+#alias voldown="sh ~/scripts/volume_down"
+#alias voltoggle="sh ~/scripts/toggle_mute"
 
 # fnm
 export FNM_COREPACK_ENABLED=true
