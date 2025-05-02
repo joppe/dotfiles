@@ -6,8 +6,8 @@ return {
   },
   config = function()
     local lint = require("lint")
-
-    lint.linters_by_ft = {
+    local format_mode = os.getenv("NVIM_FORMAT") -- default "prettier"
+    local linters = {
       javascript = { "eslint" },
       typescript = { "eslint" },
       javascriptreact = { "eslint" },
@@ -16,6 +16,23 @@ return {
       python = { "pylint" },
     }
 
+    print("nvim-lint lint mode: " .. format_mode)
+
+    if format_mode == "biome" then
+      linters.javascript = { "biome" }
+      linters.typescript = { "biome" }
+      linters.javascriptreact = { "biome" }
+      linters.typescriptreact = { "biome" }
+      linters.svelte = { "biome" }
+    elseif format_mode == "deno" then
+      linters.javascript = { "deno" }
+      linters.typescript = { "deno" }
+      linters.javascriptreact = { "deno" }
+      linters.typescriptreact = { "deno" }
+      linters.svelte = { "deno" }
+    end
+
+    lint.linters_by_ft = linters
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {

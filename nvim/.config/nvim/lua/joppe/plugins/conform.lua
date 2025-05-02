@@ -14,9 +14,9 @@ local config = {
   },
   config = function()
     local conform = require("conform")
-    local format_mode = os.getenv("NVIM_FORMAT") -- default "ma"
+    local format_mode = os.getenv("NVIM_FORMAT") -- default "prettier"
     local formatters = {
-      javascript = { "eslint_d", stop_after_first = true },
+      javascript = { "prettierd", "prettier", stop_after_first = true },
       typescript = { "prettierd", "prettier", stop_after_first = true },
       javascriptreact = { "prettierd", "prettier", stop_after_first = true },
       typescriptreact = { "prettierd", "prettier", stop_after_first = true },
@@ -26,6 +26,7 @@ local config = {
       json = { "prettierd", "prettier", stop_after_first = true },
       markdown = { "prettierd", "prettier", stop_after_first = true },
       graphql = { "prettierd", "prettier", stop_after_first = true },
+      yaml = { "prettierd", "prettier", stop_after_first = true },
       lua = { "stylua" },
       python = { "isort", "black" },
       go = { "gofumpt", "goimports-reviser", "golines" },
@@ -33,12 +34,9 @@ local config = {
       tf = { "terraform_fmt" },
     }
 
-    print("Conform mode: " .. format_mode)
+    print("conform format mode: " .. format_mode)
 
-    if format_mode == "prettier" then
-      formatters.javascript = { "prettierd", "prettier", stop_after_first = true }
-      formatters.yaml = { "prettierd", "prettier", stop_after_first = true }
-    elseif format_mode == "biome" then
+    if format_mode == "biome" then
       formatters.javascript = { "biome" }
       formatters.typescript = { "biome" }
       formatters.javascriptreact = { "biome" }
