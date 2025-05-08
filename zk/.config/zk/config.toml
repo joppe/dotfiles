@@ -1,6 +1,6 @@
 # NOTEBOOK SETTINGS
 [notebook]
-dir = "/mnt/extra/stack/notes"
+dir = "/home/joppe/stack/notes"
 
 # NOTE SETTINGS
 [note]
