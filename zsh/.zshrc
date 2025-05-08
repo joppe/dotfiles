@@ -1,5 +1,3 @@
-# Add deno completions to search path
-if [[ ":$FPATH:" != *":/home/joppe/.zsh/completions:"* ]]; then export FPATH="/home/joppe/.zsh/completions:$FPATH"; fi
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME}/.local/share/zinit/zinit.git"
 
@@ -9,14 +7,9 @@ if [ ! -d "$ZINIT_HOME" ]; then
   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
-# Path
-export PATH=$PATH:/usr/local/go/bin:/home/joppe/zk:/home/joppe/nvim-linux64/bin:/home/joppe/.emacs.d/bin/
-
-if [[ ! "$PATH" == */home/joppe/.fzf/bin* ]]; then
-  PATH="${PATH}:/home/joppe/.fzf/bin"
-fi
 # fnm
 FNM_PATH="/home/joppe/.local/share/fnm"
+
 if [ -d "$FNM_PATH" ]; then
   export PATH="/home/joppe/.local/share/fnm:$PATH"
   eval "`fnm env`"
@@ -99,4 +92,3 @@ eval "$(zoxide init --cmd cd zsh)"
 eval "$(fnm env --use-on-cd)"
 eval "$(fnm completions --shell zsh)"
 eval "$(starship init zsh)"
-. "/home/joppe/.deno/env"
