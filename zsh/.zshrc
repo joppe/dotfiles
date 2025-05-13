@@ -1,3 +1,6 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/joppe/.zsh/completions:"* ]]; then export FPATH="/home/joppe/.zsh/completions:$FPATH"; fi
+
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME}/.local/share/zinit/zinit.git"
 
@@ -92,3 +95,4 @@ eval "$(zoxide init --cmd cd zsh)"
 eval "$(fnm env --use-on-cd)"
 eval "$(fnm completions --shell zsh)"
 eval "$(starship init zsh)"
+. "/home/joppe/.deno/env"
