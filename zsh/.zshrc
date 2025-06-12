@@ -1,5 +1,5 @@
 # Add deno completions to search path
-if [[ ":$FPATH:" != *":/home/joppe/.zsh/completions:"* ]]; then export FPATH="/home/joppe/.zsh/completions:$FPATH"; fi
+if [[ ":$FPATH:" != *":/Users/joppeaarts/.zsh/completions:"* ]]; then export FPATH="/Users/joppeaarts/.zsh/completions:$FPATH"; fi
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME}/.local/share/zinit/zinit.git"
 
@@ -10,20 +10,20 @@ if [ ! -d "$ZINIT_HOME" ]; then
 fi
 
 # Path
-export PATH=$PATH:/usr/local/go/bin:/home/joppe/zk:/home/joppe/nvim-linux64/bin:/home/joppe/.emacs.d/bin/
+export PATH=$PATH:/usr/local/go/bin:/Users/joppeaarts/zk:/home/joppe/nvim-linux64/bin:/home/joppe/.emacs.d/bin/
 
-if [[ ! "$PATH" == */home/joppe/.fzf/bin* ]]; then
-  PATH="${PATH}:/home/joppe/.fzf/bin"
+if [[ ! "$PATH" == */Users/joppeaarts/.fzf/bin* ]]; then
+  PATH="${PATH}:/Users/joppeaarts/.fzf/bin"
 fi
 # fnm
-FNM_PATH="/home/joppe/.local/share/fnm"
+FNM_PATH="/Users/joppeaarts/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/joppe/.local/share/fnm:$PATH"
+  export PATH="/Users/joppeaarts/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
 
 # Variables
-export ZK_NOTEBOOK_DIR=/home/joppe/stack/notes/
+export ZK_NOTEBOOK_DIR=/Users/joppeaarts/stack/notes/
 export EDITOR=nvim
 export VISUAL="$EDITOR"
 # "prettier" "biome"
@@ -80,8 +80,8 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls='ls --color'
 alias l="exa --group-directories-first --icons -F -T -L=1"
 alias ll="ls -la"
-alias work="cd /home/joppe/work"
-alias tmp="cd /home/joppe/tmp"
+alias work="cd /Users/joppeaarts/work"
+alias tmp="cd /Users/joppeaarts/tmp"
 alias pn="pnpm"
 alias vim="nvim"
 alias nano="nvim"
@@ -99,4 +99,3 @@ eval "$(zoxide init --cmd cd zsh)"
 eval "$(fnm env --use-on-cd)"
 eval "$(fnm completions --shell zsh)"
 eval "$(starship init zsh)"
-. "/home/joppe/.deno/env"
