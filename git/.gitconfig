@@ -1,6 +1,6 @@
 [user]
 	name = joppe
-	email = joppe@apestaartje.info
+	email = joppeaarts@bol.com
 
 [init]
 	defaultBranch = main
@@ -24,4 +24,7 @@
 	autostash = true
 
 [rerere]
-	enabled = true
+  enabled = true
+
+[includeIf "gitdir:~/work/joppe/"]
+  path = ~/work/joppe/.gitconfig
