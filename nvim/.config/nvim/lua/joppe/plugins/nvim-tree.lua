@@ -27,6 +27,12 @@ return {
           },
         },
       },
+      filters = {
+        custom = {
+          ".DS_Store",
+          ".zk",
+        },
+      },
     })
 
     vim.keymap.set("n", "<C-n>", ":NvimTreeToggle <CR>", { desc = "Toggle file tree" })

@@ -1,10 +1,18 @@
 return {
-  "williamboman/mason-lspconfig.nvim",
+  "mason-org/mason-lspconfig.nvim",
+  opts = {},
   dependencies = {
-    "williamboman/mason.nvim",
+    { "mason-org/mason.nvim", opts = {} },
+    "neovim/nvim-lspconfig",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
+    -- import cmp-nvim-lsp plugin
+    local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+    -- used to enable autocompletion (assign to every lsp server config)
+    local capabilities = cmp_nvim_lsp.default_capabilities()
+
     -- import mason
     local mason = require("mason")
 
@@ -32,27 +40,52 @@ return {
         "html",
         "cssls",
         "tailwindcss",
-        "svelte",
         "lua_ls",
-        "graphql",
         "emmet_ls",
-        "pyright",
-        "gopls",
-        "denols",
-        "terraformls",
       },
     })
 
     mason_tool_installer.setup({
       ensure_installed = {
-        "prettierd",
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
-        "isort", -- python formatter
-        "black", -- python formatter
-        "pylint",
         "eslint-lsp",
-        "tflint",
+      },
+    })
+
+    vim.lsp.config("*", {
+      capabilities = capabilities,
+    })
+
+    vim.lsp.config("emmet_ls", {
+      capabilities = capabilities,
+      filetypes = {
+        "html",
+        "typescriptreact",
+        "javascriptreact",
+        "css",
+        "sass",
+        "scss",
+        "less",
+        "svelte",
+      },
+    })
+    vim.lsp.config("ts_ls", {
+      capabilities = capabilities,
+      single_file_support = false,
+    })
+    vim.lsp.config("lua_ls", {
+      capabilities = capabilities,
+      settings = {
+        Lua = {
+          -- make the language server recognize "vim" global
+          diagnostics = {
+            globals = { "vim" },
+          },
+          completion = {
+            callSnippet = "Replace",
+          },
+        },
       },
     })
   end,
