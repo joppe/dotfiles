@@ -130,5 +130,23 @@ return {
         },
       },
     })
+
+    -- when pnp is used with yarn eslint cannot be found, this can be fixed by setting the nodePath to the .yarn/sdks directory
+    local project_marker = { "yarn.lock", "package-lock.json", "pnpm-lock.yaml" }
+    local project_root = vim.fs.root(0, project_marker)
+    local pnp_sdks = vim.fn.expand(project_root .. "/.yarn/sdks")
+    local nodePath = ""
+
+    if vim.fn.isdirectory(pnp_sdks) ~= 0 then
+      print("eslint: pnp detected setting nodePath to .yarn/sdks")
+      nodePath = pnp_sdks
+    end
+
+    vim.lsp.config("eslint", {
+      capabilities = capabilities,
+      settings = {
+        nodePath = nodePath,
+      },
+    })
   end,
 }
