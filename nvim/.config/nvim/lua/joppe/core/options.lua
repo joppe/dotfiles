@@ -30,3 +30,7 @@ g.loaded_netrwPlugin = 1
 
 opt.grepprg = "rg --vimgrep"
 opt.grepformat = "%f:%l:%c:%m"
+
+-- spelling
+opt.spelllang = "en_us"
+opt.spell = true
