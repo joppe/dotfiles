@@ -19,7 +19,6 @@ return {
     -- import mason-lspconfig
     local mason_lspconfig = require("mason-lspconfig")
 
-    local util = require("lspconfig/util")
     local mason_tool_installer = require("mason-tool-installer")
 
     -- enable mason and configure icons
@@ -58,44 +57,6 @@ return {
       capabilities = capabilities,
     })
 
-    vim.lsp.config("graphql", {
-      filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-    })
-
-    vim.lsp.config("svelte", {
-      capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        vim.api.nvim_create_autocmd("BufWritePost", {
-          pattern = { "*.js", "*.ts" },
-          callback = function(ctx)
-            -- Here use ctx.match instead of ctx.file
-            client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-          end,
-        })
-      end,
-    })
-
-    vim.lsp.config("denols", {
-      root_dir = util.root_pattern("deno.json", "deno.jsonc"),
-    })
-
-    vim.lsp.config("gopls", {
-      capabilities = capabilities,
-      cmd = { "gopls" },
-      filetypes = { "go", "gomod", "gowork", "gotmpl" },
-      root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-      settings = {
-        gopls = {
-          completeUnimported = true,
-          usePlaceholders = true,
-          analyses = {
-            unusedparams = true,
-            unreachable = true,
-          },
-        },
-      },
-    })
-
     vim.lsp.config("emmet_ls", {
       capabilities = capabilities,
       filetypes = {
@@ -112,7 +73,6 @@ return {
 
     vim.lsp.config("ts_ls", {
       capabilities = capabilities,
-      root_dir = util.root_pattern("package.json"),
       single_file_support = false,
     })
 
