@@ -42,6 +42,7 @@ return {
         "tailwindcss",
         "lua_ls",
         "emmet_ls",
+        "denols",
       },
     })
 
@@ -72,6 +73,25 @@ return {
     })
 
     vim.lsp.config("ts_ls", {
+      root_dir = function(_, on_dir)
+        local is_ts_project = vim.fs.root(0, { "package.json" })
+
+        if is_ts_project ~= nil then
+          on_dir(vim.fn.getcwd())
+        end
+      end,
+      capabilities = capabilities,
+      single_file_support = false,
+    })
+
+    vim.lsp.config("denols", {
+      root_dir = function(_, on_dir)
+        local is_ts_project = vim.fs.root(0, { "deno.json", "deno.jsonc" })
+
+        if is_ts_project ~= nil then
+          on_dir(vim.fn.getcwd())
+        end
+      end,
       capabilities = capabilities,
       single_file_support = false,
     })
