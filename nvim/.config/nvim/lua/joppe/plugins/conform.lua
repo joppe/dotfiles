@@ -37,11 +37,11 @@ local config = {
     print("conform format mode: " .. format_mode)
 
     if format_mode == "biome" then
-      formatters.javascript = { "biome" }
-      formatters.typescript = { "biome" }
-      formatters.javascriptreact = { "biome" }
-      formatters.typescriptreact = { "biome" }
-      formatters.css = { "biome" }
+      formatters.javascript = { "biome", "biome-organize-imports" }
+      formatters.typescript = { "biome", "biome-organize-imports" }
+      formatters.javascriptreact = { "biome", "biome-organize-imports" }
+      formatters.typescriptreact = { "biome", "biome-organize-imports" }
+      formatters.css = { "biome", "biome-organize-imports" }
       formatters.html = { "biome" }
       formatters.json = { "biome" }
       formatters.graphql = { "biome" }

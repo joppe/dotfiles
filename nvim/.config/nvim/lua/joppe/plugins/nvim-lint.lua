@@ -19,11 +19,11 @@ return {
     print("nvim-lint lint mode: " .. format_mode)
 
     if format_mode == "biome" then
-      linters.javascript = { "biome" }
-      linters.typescript = { "biome" }
-      linters.javascriptreact = { "biome" }
-      linters.typescriptreact = { "biome" }
-      linters.svelte = { "biome" }
+      linters.javascript = { "biomejs" }
+      linters.typescript = { "biomejs" }
+      linters.javascriptreact = { "biomejs" }
+      linters.typescriptreact = { "biomejs" }
+      linters.svelte = { "biomejs" }
     elseif format_mode == "deno" then
       linters.javascript = { "deno" }
       linters.typescript = { "deno" }

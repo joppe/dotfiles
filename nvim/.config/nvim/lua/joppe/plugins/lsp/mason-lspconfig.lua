@@ -51,6 +51,9 @@ return {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
         "eslint-lsp",
+        "isort",
+        "black",
+        "pylint",
       },
     })
 
