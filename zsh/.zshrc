@@ -96,3 +96,6 @@ eval "$(fnm env --use-on-cd)"
 eval "$(fnm completions --shell zsh)"
 eval "$(starship init zsh)"
 . "/home/joppe/.deno/env"
+
+# opencode
+export PATH=/home/joppe/.opencode/bin:$PATH
