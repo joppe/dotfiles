@@ -17,8 +17,19 @@ alias pn="pnpm"
 alias vim="nvim"
 alias nano="nvim"
 alias http-server="python3 -m http.server"
+alias notes="cd $ZK_NOTEBOOK_DIR && nvim ."
 
 set -g fish_key_bindings fish_vi_key_bindings
 
 starship init fish | source
 fnm env --use-on-cd --shell fish | source
+
+# opencode
+fish_add_path /home/joppe/.opencode/bin
+
+# goose
+fish_add_path /home/joppe/.local/bin
+
+# deno
+fish_add_path /home/joppe/.deno/bin
+
