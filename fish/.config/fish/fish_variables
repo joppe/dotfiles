@@ -3,9 +3,9 @@
 SETUVAR --export EDITOR:nvim
 SETUVAR --export NVIM_FORMAT:prettier
 SETUVAR --export VISUAL:nvim
-SETUVAR --export ZK_NOTEBOOK_DIR:/home/joppe/stack/notes/
+SETUVAR --export ZK_NOTEBOOK_DIR:/home/joppe/notes/
 SETUVAR __fish_initialized:4300
 SETUVAR _fisher_catppuccin_2F_fish_files:\x7e/\x2econfig/fish/themes/Catppuccin\x20Frappe\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Latte\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Macchiato\x2etheme\x1e\x7e/\x2econfig/fish/themes/Catppuccin\x20Mocha\x2etheme
 SETUVAR _fisher_plugins:catppuccin/fish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
-SETUVAR fish_user_paths:/home/joppe/\x2edeno/bin\x1e/home/joppe/\x2elocal/bin\x1e/home/joppe/\x2eopencode/bin
+SETUVAR fish_user_paths:/home/joppe/\x2ecargo/bin\x1e/home/joppe/\x2edeno/bin\x1e/home/joppe/\x2elocal/bin\x1e/home/joppe/\x2eopencode/bin

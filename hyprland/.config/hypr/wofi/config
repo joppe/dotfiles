@@ -1,6 +1,6 @@
 show=drun
 allow_images=true
-width=750
+width=850
 height=400
 always_parse_args=true
 show_all=false

@@ -79,7 +79,7 @@ window {
 /* Inner Box */
 #inner-box {
   margin: 5px;
-  /* padding: 10px; */
+  padding: 10px;
   border: none;
   background-color: @base;
   animation: fadeIn 0.5s ease-in-out both;
@@ -107,7 +107,7 @@ window {
 /* Scroll */
 #scroll {
   margin: 0px;
-  /* padding: 10px; */
+  padding: 10px;
   border: none;
   background-color: @base;
 }
@@ -134,7 +134,7 @@ window {
 
 /* Text */
 #text {
-  /* margin: 5px; */
+  margin: 5px;
   border: none;
   color: @text;
   animation: fadeIn 0.5s ease-in-out both;

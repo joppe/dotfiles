@@ -19,7 +19,7 @@ if [ -d "$FNM_PATH" ]; then
 fi
 
 # Variables
-export ZK_NOTEBOOK_DIR=/home/joppe/stack/notes/
+export ZK_NOTEBOOK_DIR=/home/joppe/notes/
 export EDITOR=nvim
 export VISUAL="$EDITOR"
 # "prettier" "biome"

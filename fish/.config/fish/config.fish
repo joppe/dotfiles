@@ -3,7 +3,7 @@ if status is-interactive
 end
 
 # Variables
-set -Ux ZK_NOTEBOOK_DIR /home/joppe/stack/notes/
+set -Ux ZK_NOTEBOOK_DIR /home/joppe/notes/
 set -Ux EDITOR nvim
 set -Ux VISUAL "$EDITOR"
 # "prettier" "biome"
@@ -33,3 +33,5 @@ fish_add_path /home/joppe/.local/bin
 # deno
 fish_add_path /home/joppe/.deno/bin
 
+# cargo
+fish_add_path /home/joppe/.cargo/bin
