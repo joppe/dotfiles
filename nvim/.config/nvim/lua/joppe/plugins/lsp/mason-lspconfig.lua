@@ -36,24 +36,27 @@ return {
       automatic_installation = true, -- automatically install servers
       -- list of servers for mason to install
       ensure_installed = {
-        "ts_ls",
-        "html",
         "cssls",
-        "tailwindcss",
-        "lua_ls",
-        "emmet_ls",
         "denols",
+        "emmet_ls",
+        "html",
+        "lua_ls",
+        "svelte",
+        "tailwindcss",
+        "ts_ls",
       },
     })
 
     mason_tool_installer.setup({
       ensure_installed = {
-        "prettier", -- prettier formatter
-        "stylua", -- lua formatter
+        "black",
         "eslint-lsp",
         "isort",
-        "black",
+        "oxfmt",
+        "oxlint",
+        "prettier", -- prettier formatter
         "pylint",
+        "stylua", -- lua formatter
       },
     })
 
@@ -64,14 +67,14 @@ return {
     vim.lsp.config("emmet_ls", {
       capabilities = capabilities,
       filetypes = {
-        "html",
-        "typescriptreact",
-        "javascriptreact",
         "css",
+        "html",
+        "javascriptreact",
+        "less",
         "sass",
         "scss",
-        "less",
         "svelte",
+        "typescriptreact",
       },
     })
 
@@ -114,25 +117,26 @@ return {
       },
     })
 
-    -- when pnp is used with yarn eslint cannot be found, this can be fixed by setting the nodePath to the .yarn/sdks directory
-    local nodePath = ""
-    local project_marker = { "yarn.lock", "package-lock.json", "pnpm-lock.yaml" }
-    local project_root = vim.fs.root(0, project_marker)
-
-    if project_root ~= nil then
-      local pnp_sdks = vim.fn.expand(project_root .. "/.yarn/sdks")
-
-      if vim.fn.isdirectory(pnp_sdks) ~= 0 then
-        print("eslint: pnp detected setting nodePath to .yarn/sdks")
-        nodePath = pnp_sdks
-      end
-    end
-
     vim.lsp.config("eslint", {
+      root_dir = function(_, on_dir)
+        local is_eslint_project = vim.fs.root(0, { "eslint.config.js" })
+
+        if is_eslint_project ~= nil then
+          on_dir(vim.fn.getcwd())
+        end
+      end,
       capabilities = capabilities,
-      settings = {
-        nodePath = nodePath,
-      },
+    })
+
+    vim.lsp.config("oxlint", {
+      root_dir = function(_, on_dir)
+        local is_oxlint_project = vim.fs.root(0, { ".oxlintrc.json" })
+
+        if is_oxlint_project ~= nil then
+          on_dir(vim.fn.getcwd())
+        end
+      end,
+      capabilities = capabilities,
     })
   end,
 }

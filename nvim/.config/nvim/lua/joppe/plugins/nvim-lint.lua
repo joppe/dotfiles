@@ -6,25 +6,37 @@ return {
   },
   config = function()
     local lint = require("lint")
-    local format_mode = os.getenv("NVIM_FORMAT") -- default "prettier"
     local linters = {
-      javascript = { "eslint" },
-      typescript = { "eslint" },
-      javascriptreact = { "eslint" },
-      typescriptreact = { "eslint" },
-      svelte = { "eslint" },
       python = { "pylint" },
     }
 
-    print("nvim-lint lint mode: " .. format_mode)
+    if vim.fs.root(0, { "eslint.config.js" }) ~= nil then
+      print("nvim-lint lint mode: eslint")
 
-    if format_mode == "biome" then
+      linters.javascript = { "eslint" }
+      linters.typescript = { "eslint" }
+      linters.javascriptreact = { "eslint" }
+      linters.typescriptreact = { "eslint" }
+      linters.svelte = { "eslint" }
+    elseif vim.fs.root(0, { "biome.json" }) ~= nil then
+      print("nvim-lint lint mode: deno")
+
       linters.javascript = { "biomejs" }
       linters.typescript = { "biomejs" }
       linters.javascriptreact = { "biomejs" }
       linters.typescriptreact = { "biomejs" }
       linters.svelte = { "biomejs" }
-    elseif format_mode == "deno" then
+    elseif vim.fs.root(0, { ".oxlintrc.json" }) ~= nil then
+      print("nvim-lint lint mode: oxlint")
+
+      linters.javascript = { "oxlint" }
+      linters.typescript = { "oxlint" }
+      linters.javascriptreact = { "oxlint" }
+      linters.typescriptreact = { "oxlint" }
+      linters.svelte = { "oxlint" }
+    elseif vim.fs.root(0, { "deno.json", "deno.jsonc" }) ~= nil then
+      print("nvim-lint lint mode: deno")
+
       linters.javascript = { "deno" }
       linters.typescript = { "deno" }
       linters.javascriptreact = { "deno" }

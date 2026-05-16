@@ -21,6 +21,7 @@ local languages = {
   "vim",
   "vimdoc",
   "yaml",
+  "zig",
 }
 
 return {
@@ -55,7 +56,6 @@ return {
         vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
         vim.wo.foldnestmax = 3
         vim.wo.foldlevel = 99
-        vim.wo.foldlevelstart = 99
 
         vim.treesitter.start(buf, language)
 
@@ -63,6 +63,8 @@ return {
         vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
       end,
     })
+
+    vim.o.foldlevelstart = 99
 
     -- autotag
     require("nvim-ts-autotag").setup()

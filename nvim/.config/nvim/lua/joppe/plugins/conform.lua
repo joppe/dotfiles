@@ -14,19 +14,8 @@ local config = {
   },
   config = function()
     local conform = require("conform")
-    local format_mode = os.getenv("NVIM_FORMAT") -- default "prettier"
+
     local formatters = {
-      javascript = { "prettierd", "prettier", stop_after_first = true },
-      typescript = { "prettierd", "prettier", stop_after_first = true },
-      javascriptreact = { "prettierd", "prettier", stop_after_first = true },
-      typescriptreact = { "prettierd", "prettier", stop_after_first = true },
-      svelte = { "prettierd", "prettier", stop_after_first = true },
-      css = { "prettierd", "prettier", stop_after_first = true },
-      html = { "prettierd", "prettier", stop_after_first = true },
-      json = { "prettierd", "prettier", stop_after_first = true },
-      markdown = { "prettierd", "prettier", stop_after_first = true },
-      graphql = { "prettierd", "prettier", stop_after_first = true },
-      yaml = { "prettierd", "prettier", stop_after_first = true },
       lua = { "stylua" },
       python = { "isort", "black" },
       go = { "gofumpt", "goimports-reviser", "golines" },
@@ -34,9 +23,9 @@ local config = {
       tf = { "terraform_fmt" },
     }
 
-    print("conform format mode: " .. format_mode)
+    if vim.fs.root(0, { "biome.json" }) ~= nil then
+      print("conform format mode: biome")
 
-    if format_mode == "biome" then
       formatters.javascript = { "biome", "biome-organize-imports" }
       formatters.typescript = { "biome", "biome-organize-imports" }
       formatters.javascriptreact = { "biome", "biome-organize-imports" }
@@ -45,7 +34,19 @@ local config = {
       formatters.html = { "biome" }
       formatters.json = { "biome" }
       formatters.graphql = { "biome" }
-    elseif format_mode == "deno" then
+    elseif vim.fs.root(0, { ".oxfmtrc.jsonc" }) ~= nil then
+      print("conform format mode: oxfmt")
+
+      formatters.javascript = { "oxfmt" }
+      formatters.typescript = { "oxfmt" }
+      formatters.javascriptreact = { "oxfmt" }
+      formatters.typescriptreact = { "oxfmt" }
+      formatters.css = { "oxfmt" }
+      formatters.html = { "oxfmt" }
+      formatters.json = { "oxfmt" }
+    elseif vim.fs.root(0, { "deno.json", "deno.jsonc" }) ~= nil then
+      print("conform format mode: deno")
+
       formatters.javascript = { "deno_fmt" }
       formatters.typescript = { "deno_fmt" }
       formatters.javascriptreact = { "deno_fmt" }
@@ -53,6 +54,20 @@ local config = {
       formatters.css = { "deno_fmt" }
       formatters.html = { "deno_fmt" }
       formatters.json = { "deno_fmt" }
+    elseif vim.fs.root(0, { ".prettierrc" }) ~= nil then
+      print("conform format mode: prettier")
+
+      formatters.javascript = { "prettierd", "prettier", stop_after_first = true }
+      formatters.typescript = { "prettierd", "prettier", stop_after_first = true }
+      formatters.javascriptreact = { "prettierd", "prettier", stop_after_first = true }
+      formatters.typescriptreact = { "prettierd", "prettier", stop_after_first = true }
+      formatters.svelte = { "prettierd", "prettier", stop_after_first = true }
+      formatters.css = { "prettierd", "prettier", stop_after_first = true }
+      formatters.html = { "prettierd", "prettier", stop_after_first = true }
+      formatters.json = { "prettierd", "prettier", stop_after_first = true }
+      formatters.markdown = { "prettierd", "prettier", stop_after_first = true }
+      formatters.graphql = { "prettierd", "prettier", stop_after_first = true }
+      formatters.yaml = { "prettierd", "prettier", stop_after_first = true }
     end
 
     conform.setup({
