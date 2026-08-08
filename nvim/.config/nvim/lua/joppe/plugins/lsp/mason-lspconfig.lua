@@ -44,6 +44,7 @@ return {
         "svelte",
         "tailwindcss",
         "ts_ls",
+        "zls",
       },
     })
 
@@ -76,6 +77,18 @@ return {
         "svelte",
         "typescriptreact",
       },
+    })
+
+    vim.lsp.config("zls", {
+      root_dir = function(_, on_dir)
+        local is_zig_project = vim.fs.root(0, { "build.zig" })
+
+        if is_zig_project ~= nil then
+          on_dir(vim.fn.getcwd())
+        end
+      end,
+      capabilities = capabilities,
+      single_file_support = true,
     })
 
     vim.lsp.config("ts_ls", {

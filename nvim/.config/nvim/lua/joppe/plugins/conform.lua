@@ -21,6 +21,7 @@ local config = {
       go = { "gofumpt", "goimports-reviser", "golines" },
       terraform = { "terraform_fmt" },
       tf = { "terraform_fmt" },
+      zig = { "zigfmt" },
     }
 
     if vim.fs.root(0, { "biome.json" }) ~= nil then
