@@ -34,3 +34,6 @@ opt.grepformat = "%f:%l:%c:%m"
 -- spelling
 opt.spelllang = "en_us"
 opt.spell = true
+
+-- patch for fugitive/diffget https://github.com/neovim/neovim/issues/22696#issuecomment-3906586437
+vim.opt.diffopt:remove("linematch:40")
