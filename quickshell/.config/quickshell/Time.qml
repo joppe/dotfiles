@@ -6,26 +6,14 @@ import QtQuick
 
 Scope {
   id: time
-  property string time
 
-  Process {
-    id: dateProc
-    // the command to run, every argument is its own string
-    command: ["date"]
-    // run the command immediately
-    running: true
-    // process the output of the command
-    stdout: StdioCollector {
-      // listen to when the stream is finished
-      onStreamFinished: time.time = this.text
-    }
+  readonly property string time: {
+    Qt.formatDateTime(clock.date, "ddd MMM d hh:mm:ss")
   }
 
-  Timer {
-    interval: 1000
-    running: true
-    repeat: true
-    onTriggered: dateProc.running = true
+  SystemClock {
+    id: clock
+    precision: SystemClock.Seconds
   }
 }
 
