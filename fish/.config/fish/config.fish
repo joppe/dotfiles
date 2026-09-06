@@ -17,7 +17,6 @@ alias pn="pnpm"
 alias vim="nvim"
 alias nano="nvim"
 alias http-server="python3 -m http.server"
-alias notes="cd $ZK_NOTEBOOK_DIR && nvim ."
 
 set -g fish_key_bindings fish_vi_key_bindings
 
