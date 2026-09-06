@@ -41,6 +41,7 @@ return {
         "emmet_ls",
         "html",
         "lua_ls",
+        "qmlls",
         "svelte",
         "tailwindcss",
         "ts_ls",
