@@ -1,15 +1,19 @@
 import Quickshell
 import QtQuick
 
-FloatingWindow {
-  visible: true
-  width: 200
-  height: 100
+PanelWindow {
+  anchors {
+    top: true
+    left: true
+    right: true
+  }
+
+  implicitHeight: 30
 
   Text {
+    // center the bar in its parent component (the window)
     anchors.centerIn: parent
-    text: "Hello World!"
-    color: "#0db9d7"
-    font.pixelSize: 18
+
+    text: "hello world"
   }
 }
