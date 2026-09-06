@@ -2,7 +2,7 @@ import Quickshell
 import Quickshell.Io
 import QtQuick
 
-PanelWindow {
+Scope {
   id: root
 
   // Catppuccin Mocha palette https://catppuccin.com/palette/
@@ -33,42 +33,53 @@ PanelWindow {
   readonly property color mantle: "#181825"
   readonly property color crust: "#11111b"
 
-  anchors {
-    top: true
-    left: true
-    right: true
-  }
+  property string time
 
-  implicitHeight: 30
-  color: this.base
 
-  Text {
-    id: clock
+  Variants {
+    // this is a reactive property, will be updated when screen is added/removed
+    model: Quickshell.screens
 
-    anchors.centerIn: parent
+    PanelWindow {
+      required property var modelData
+      screen: modelData
 
-    color: root.text
-    font.bold: true
+      anchors {
+        top: true
+        left: true
+        right: true
+      }
 
-    Process {
-      id: dateProc
+      implicitHeight: 30
+      color: root.base
 
-      // the command to run, every argument is its own string
-      command: ["date"]
-      // run the command immediately
-      running: true
-      // process the output of the command
-      stdout: StdioCollector {
-        // listen to when the stream is finished
-        onStreamFinished: clock.text = this.text
+      Text {
+        anchors.centerIn: parent
+        color: root.text
+        font.bold: true
+        text: root.time
       }
     }
+  }
 
-    Timer {
-      interval: 1000
-      running: true
-      repeat: true
-      onTriggered: dateProc.running = true
+  Process {
+    id: dateProc
+    // the command to run, every argument is its own string
+    command: ["date"]
+    // run the command immediately
+    running: true
+    // process the output of the command
+    stdout: StdioCollector {
+      // listen to when the stream is finished
+      onStreamFinished: root.time = this.text
     }
   }
+
+  Timer {
+    interval: 1000
+    running: true
+    repeat: true
+    onTriggered: dateProc.running = true
+  }
 }
+
