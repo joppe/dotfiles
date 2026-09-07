@@ -2,5 +2,5 @@ import QtQuick
 import "../data"
 
 Text {
-  text: Time.time
+  text: Battery.percentage
 }

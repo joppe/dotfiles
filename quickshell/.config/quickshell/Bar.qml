@@ -8,7 +8,7 @@ import "./settings"
 import "./widgets"
 
 Scope {
-  id: root
+  id: bar
 
   Variants {
     // this is a reactive property, will be updated when screen is added/removed
@@ -38,12 +38,9 @@ Scope {
         }
 
         Pill {
-          Text {
-            readonly property string percentage: {
-              return `bat: ${UPower.displayDevice.percentage * 100}%`
-            }
-            text: percentage
+          BatteryWidget {
             color: Colors.text
+            font.bold: true
           }
         }
 

@@ -3,7 +3,7 @@ import QtQuick.Layouts
 import "../settings"
 
 Rectangle {
-  id: root
+  id: pill
 
   // --- Sizing ---
   implicitWidth: contentItem.implicitWidth + leftPadding + rightPadding
@@ -39,10 +39,10 @@ Rectangle {
 
     anchors {
       fill: parent
-      leftMargin: root.leftPadding
-      rightMargin: root.rightPadding
-      topMargin: root.topPadding
-      bottomMargin: root.bottomPadding
+      leftMargin: pill.leftPadding
+      rightMargin: pill.rightPadding
+      topMargin: pill.topPadding
+      bottomMargin: pill.bottomPadding
     }
 
     implicitWidth: childrenRect.width
