@@ -29,5 +29,6 @@ QtObject {
   readonly property color base: "#1e1e2e"
   readonly property color mantle: "#181825"
   readonly property color crust: "#11111b"
+  readonly property color transparent: "transparent"
 }
 

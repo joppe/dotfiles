@@ -3,16 +3,12 @@ import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Services.UPower
+import "./pill"
 import "./settings"
+import "./widgets"
 
 Scope {
   id: root
-
-  property string time
-
-  function batteryPercentage() {
-    return `${UPower.displayDevice.percentage * 100}%`
-  }
 
   Variants {
     // this is a reactive property, will be updated when screen is added/removed
@@ -28,27 +24,34 @@ Scope {
         right: true
       }
 
+      margins {
+        top: Sizes.md
+      }
+
       implicitHeight: 30
-      color: Colors.base
+      color: Colors.transparent
 
       RowLayout {
         anchors {
           right: parent.right
-          rightMargin: Sizes.md
           verticalCenter: parent.verticalCenter
         }
 
-        Text {
-          readonly property string percentage: {
-            return `bat: ${UPower.displayDevice.percentage * 100}%`
+        Pill {
+          Text {
+            readonly property string percentage: {
+              return `bat: ${UPower.displayDevice.percentage * 100}%`
+            }
+            text: percentage
+            color: Colors.text
           }
-          text: percentage
-          color: Colors.text
         }
 
-        ClockWidget {
-          color: Colors.text
-          font.bold: true
+        Pill {
+          ClockWidget {
+            color: Colors.text
+            font.bold: true
+          }
         }
       }
     }
