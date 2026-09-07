@@ -32,6 +32,7 @@ Scope {
   readonly property color base: "#1e1e2e"
   readonly property color mantle: "#181825"
   readonly property color crust: "#11111b"
+  readonly property real spacing: 18
 
   property string time
 
@@ -53,7 +54,11 @@ Scope {
       color: root.base
 
       ClockWidget {
-        anchors.centerIn: parent
+        anchors {
+          right: parent.right
+          rightMargin: root.spacing
+          verticalCenter: parent.verticalCenter
+        }
         color: root.text
         font.bold: true
       }
