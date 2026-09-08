@@ -26,6 +26,8 @@ Scope {
 
       margins {
         top: Sizes.md
+        left: Sizes.xs
+        right: Sizes.xs
       }
 
       implicitHeight: 30
@@ -44,6 +46,7 @@ Scope {
           Pill {
             Text {
               text: "test"
+              color: Colors.text
             }
           }
         }
@@ -64,6 +67,10 @@ Scope {
           anchors {
             right: parent.right
             verticalCenter: parent.verticalCenter
+          }
+
+          Pill {
+            TrayWidget {}
           }
 
           Pill {
