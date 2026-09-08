@@ -2,5 +2,7 @@ import QtQuick
 import "../data"
 
 Text {
-  text: Battery.percentage
+  text: {
+    return `${Battery.icon} ${Battery.percentage}%`
+  }
 }

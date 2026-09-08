@@ -33,21 +33,45 @@ Scope {
 
       RowLayout {
         anchors {
-          right: parent.right
-          verticalCenter: parent.verticalCenter
+          fill: parent
         }
 
-        Pill {
-          BatteryWidget {
-            color: Colors.text
-            font.bold: true
+        RowLayout {
+          Layout.alignment: Qt.AlignLeft 
+
+          Pill {
+            Text {
+              text: "test"
+            }
           }
         }
 
-        Pill {
-          ClockWidget {
-            color: Colors.text
-            font.bold: true
+        RowLayout {
+          Layout.alignment: Qt.AlignHCenter 
+          Layout.fillWidth: true
+
+          Pill {
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+
+            FocusWindow {}
+          }
+        }
+
+        RowLayout {
+          Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+
+          Pill {
+            BatteryWidget {
+              color: Colors.text
+              font.bold: true
+            }
+          }
+
+          Pill {
+            ClockWidget {
+              color: Colors.text
+              font.bold: true
+            }
           }
         }
       }
