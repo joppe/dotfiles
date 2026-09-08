@@ -31,13 +31,15 @@ Scope {
       implicitHeight: 30
       color: Colors.transparent
 
-      RowLayout {
-        anchors {
-          fill: parent
-        }
+      Item {
+        anchors.fill: parent
 
         RowLayout {
-          Layout.alignment: Qt.AlignLeft 
+          id: left
+          anchors {
+            left: parent.left
+            verticalCenter: parent.verticalCenter
+          }
 
           Pill {
             Text {
@@ -47,18 +49,28 @@ Scope {
         }
 
         RowLayout {
-          Layout.alignment: Qt.AlignHCenter 
-          Layout.fillWidth: true
+          id: center
+          anchors {
+            centerIn: parent
+          }
 
           Pill {
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-
-            FocusWindow {}
+            FocusWindowWidget {}
           }
         }
 
         RowLayout {
-          Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+          id: right
+          anchors {
+            right: parent.right
+            verticalCenter: parent.verticalCenter
+          }
+
+          Pill {
+            WifiWidget {
+              color: Colors.text
+            }
+          }
 
           Pill {
             BatteryWidget {
