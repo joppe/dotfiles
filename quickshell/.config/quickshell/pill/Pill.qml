@@ -21,7 +21,7 @@ Rectangle {
   property real bottomPadding: Sizes.sm
 
   // --- Shape ---
-  radius: Sizes.lg
+  radius: height/2
   color: Colors.base
   clip: true
 
