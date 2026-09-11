@@ -2,5 +2,5 @@ import QtQuick
 import "../data"
 
 Text {
-  text: Wifi.icon
+  text: `\uf4bc ${CPU.usage}%`
 }

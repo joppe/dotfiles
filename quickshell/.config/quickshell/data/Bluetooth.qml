@@ -7,7 +7,13 @@ Scope {
   id: bluetooth
 
   readonly property bool enabled: Bluetooth.defaultAdapter.enabled 
-  readonly property bool connected: Bluetooth.defaultAdapter.devices.values.filter(d => d.connected).length
+  readonly property bool connected: {
+    const connected = Bluetooth.defaultAdapter.devices.values.filter((d) => {
+      return d.connected;
+    });
+
+    return connected.length > 0;    
+  }
 
   readonly property string icon: {
     const icons = {
@@ -21,7 +27,7 @@ Scope {
     }
 
     if (bluetooth.enabled) {
-      bluetooth.on
+      return icons.on
     }
 
     return icons.off

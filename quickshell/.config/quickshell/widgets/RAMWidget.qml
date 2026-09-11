@@ -2,5 +2,5 @@ import QtQuick
 import "../data"
 
 Text {
-  text: Wifi.icon
+  text: `\udb81\ude1a ${RAM.usage}%`
 }

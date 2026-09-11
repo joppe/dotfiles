@@ -85,9 +85,17 @@ Scope {
           }
 
           Pill {
-            BatteryWidget {
-              color: Colors.text
-              font.bold: true
+            RowLayout {
+              CPUWidget {
+                color: Colors.text
+              }
+              RAMWidget {
+                color: Colors.text
+              }
+              BatteryWidget {
+                color: Colors.text
+                font.bold: true
+              }
             }
           }
 
