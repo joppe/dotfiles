@@ -74,8 +74,13 @@ Scope {
           }
 
           Pill {
-            WifiWidget {
-              color: Colors.text
+            RowLayout {
+              BluetoothWidget {
+                color: Colors.text
+              }
+              WifiWidget {
+                color: Colors.text
+              }
             }
           }
 
